@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Robot Framework",
+      "type": "robotframework-ls",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "target": "${file}",
+      "args": ["--outputdir", "reports/"]
+    }
+  ]
+}
