@@ -9,22 +9,9 @@
 
 **Automated API test suite for Restful Booker built with Robot Framework, Python & Cucumber (BDD).**
 
-[📖 API Docs](https://restful-booker.herokuapp.com/apidoc/index.html) • [🐛 Issues](../../issues) • [📊 Reports](#-test-reports)
+[📖 API Docs](https://restful-booker.herokuapp.com/apidoc/index.html)
 
 </div>
-
----
-
-## Table of Contents
-
-- [About](#-about)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Running Tests](#-running-tests)
-- [Test Scenarios](#-test-scenarios)
-- [Reports](#-test-reports)
-- [Contributing](#-contributing)
 
 ---
 
