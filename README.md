@@ -5,6 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Robot Framework](https://img.shields.io/badge/Robot%20Framework-7.0-000000?style=for-the-badge&logo=robot-framework&logoColor=white)
 ![Cucumber](https://img.shields.io/badge/Cucumber-BDD-23D96C?style=for-the-badge&logo=cucumber&logoColor=white)
+![Bruno](https://img.shields.io/badge/Bruno-API%20Client-FF6C37?style=for-the-badge&logo=bruno&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 **Automated API test suite for Restful Booker built with Robot Framework, Python & Cucumber (BDD).**
