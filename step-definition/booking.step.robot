@@ -33,3 +33,12 @@ the booking list should not be empty
     ${bookings}=    Set Variable    ${LAST_RESPONSE.json()}
     Should Not Be Empty    ${bookings}
     Log    Total bookings found: ${bookings.__len__()}
+
+the user updates the booking with the following details
+    [Arguments]    ${firstname}    ${lastname}    ${totalprice}    ${depositpaid}    ${checkin}    ${checkout}
+    ${response}=    Update Booking    ${BOOKING_ID}    ${firstname}    ${lastname}    ${totalprice}    ${depositpaid}    ${checkin}    ${checkout}
+    Set Global Variable    ${LAST_RESPONSE}    ${response}
+
+the updated booking should have the firstname "${expected_name}"
+    ${get_response}=    Get Booking By Id    ${BOOKING_ID}
+    Should Be Equal As Strings    ${get_response.json()['firstname']}    ${expected_name}

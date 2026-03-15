@@ -1,6 +1,0 @@
-name: QA
-variables:
-  - name: base_url
-    value: https://restful-booker.herokuapp.com
-  - name: BOOKING_ID
-    value: "{{base_url}}/booking/{{BOOKING_ID}}"

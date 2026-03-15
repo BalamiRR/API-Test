@@ -1,0 +1,35 @@
+image: python:3.11
+
+stages:
+  - install
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+install-dependencies:
+  stage: install
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  artifacts:
+    paths:
+      - .cache/pip
+
+run-tests:
+  stage: test
+  script:
+    - robot --outputdir reports tests/
+  artifacts:
+    when: always
+    paths:
+      - reports/log.html
+      - reports/report.html
+      - reports/output.xml
+    reports:
+      junit: reports/output.xml
+  allow_failure: false

@@ -20,3 +20,14 @@ Scenario: Get all bookings and verify the list
     Then the response status code should be 200
     And the booking list should not be empty
 
+Scenario: Update an existing booking and verify the details
+    [Tags]    Regression
+    [Documentation]    Update an existing booking and verify the details
+    Given the API service is available at the configured url
+    When the user creates a booking with the following details
+    ...    John    Wick    500    true    2026-05-01    2026-05-10
+    And the user updates the booking with the following details
+    ...    Fuat    Kara    999    false    2027-01-01    2027-01-10
+    Then the response status code should be 200
+    And the updated booking should have the firstname "Fuat"
+
