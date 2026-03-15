@@ -1,40 +1,47 @@
-image: python:3.11-slim
+image: python:3.11
 
 stages:
-  - install
   - test
+  - report
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 cache:
-  key: "$CI_COMMIT_REF_SLUG"
   paths:
     - .cache/pip
 
-install-dependencies:
-  stage: install
-  script:
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-
 run-tests:
   stage: test
-  dependencies:
-    - install-dependencies
+  before_script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
   script:
     - mkdir -p reports
-    - python -m robot
-      --outputdir reports
-      --pythonpath .
-      features/
+    - python -m robot --outputdir reports --pythonpath . features/
   artifacts:
     when: always
-    expire_in: 7 days
     paths:
       - reports/log.html
       - reports/report.html
       - reports/output.xml
-    reports:
-      junit: reports/output.xml
+    expire_in: 7 days
   allow_failure: false
+
+convert-results:
+  stage: report
+  before_script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  script:
+    - rebot --outputdir reports --xunit reports/xunit.xml reports/output.xml
+  artifacts:
+    when: always
+    paths:
+      - reports/xunit.xml
+    reports:
+      junit: reports/xunit.xml
+    expire_in: 7 days
+  allow_failure: true
+  dependencies:
+    - run-tests
