@@ -95,7 +95,10 @@ pip install -r requirements.txt
 
 ```txt
 robotframework==7.0
-robotframework-requests==0.9.7
+robotframework-requests
+robotframework-seleniumlibrary
+selenium
+webdriver-manager
 ```
 
 ---
@@ -111,29 +114,13 @@ robot -d results tests/
 ### Run a specific suite
 
 ```bash
-robot -d results tests/booking/create_booking_tests.robot
-```
-
-### Run by tag
-
-```bash
-# Run only smoke tests
-robot -d results -i smoke tests/
-
-# Exclude regression tests
-robot -d results -e regression tests/
-```
-
-### Run in parallel (pabot)
-
-```bash
-pabot --processes 4 -d results tests/
+robot -d reports tests/booking/create_booking_tests.robot
 ```
 
 ### Run BDD / Cucumber scenarios
 
 ```bash
-robot -d results --variable FEATURE_FILE:features/create_booking.feature tests/
+robot -d results --variable features/create_booking.feature
 ```
 
 ---
