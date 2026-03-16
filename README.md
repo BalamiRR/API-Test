@@ -1,4 +1,4 @@
-# :fallen_leaf: :leavesRestful Booker API Test Automation :leaves: :fallen_leaf:
+# :fallen_leaf: :leaves: Restful Booker API Test Automation :leaves: :fallen_leaf:
 
 <div align="center">
 
